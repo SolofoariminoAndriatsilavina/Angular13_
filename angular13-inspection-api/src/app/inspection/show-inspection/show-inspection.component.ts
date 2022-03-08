@@ -34,7 +34,19 @@ export class ShowInspectionComponent implements OnInit {
   //variables (properties)
   modalTitle: string = '';
   activateAddEditInspectionComponent: boolean = false;
-  inpection: any;
+  inspection: any;
+
+  modalAdd() {
+    this.inspection = {
+      id: 0,
+      status: null,
+      comments: null,
+      inspectionTypeIs: null,
+    };
+
+    this.modalTitle = 'Add Inspection';
+    this.activateAddEditInspectionComponent = true;
+  }
 
   refreshInspectionTypesMap() {
     this.service.getInspectionTypesList().subscribe((data) => {

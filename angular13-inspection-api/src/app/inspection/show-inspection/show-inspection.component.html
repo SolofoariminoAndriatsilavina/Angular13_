@@ -4,6 +4,7 @@
   class="btn btn-primary float-end m-2"
   data-bs-toggle="modal"
   data-bs-target="#staticBackdrop"
+  (click)="modalAdd()"
 >
   Add Inspection
 </button>
@@ -74,7 +75,7 @@
   aria-labelledby="staticBackdropLabel"
   aria-hidden="true"
 >
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel">{{ modalTitle }}</h5>
@@ -85,8 +86,11 @@
           aria-label="Close"
         ></button>
       </div>
-      <div class="modal-body"></div>
-      <app-add-edit-inspection></app-add-edit-inspection>
+      <div class="modal-body pt-0"></div>
+      <app-add-edit-inspection
+        [inspection]="inspection"
+        *ngIf="activateAddEditInspectionComponent"
+      ></app-add-edit-inspection>
     </div>
   </div>
 </div>
