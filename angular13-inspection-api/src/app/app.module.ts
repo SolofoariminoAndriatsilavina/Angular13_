@@ -4,11 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InspectionComponent } from './inspection/inspection.component';
+import { ShowInspectionComponent } from './inspection/show-inspection/show-inspection.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InspectionComponent
+    InspectionComponent,
+    ShowInspectionComponent
   ],
   imports: [
     BrowserModule,
