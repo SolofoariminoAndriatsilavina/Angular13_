@@ -25,11 +25,11 @@ export class InspectionApiService {
   }
 
   updateInspection(id: number | string, data: any) {
-    return this.http.put(this.inspectionAPIUrl + '/inspections/${id}', data);
+    return this.http.put(this.inspectionAPIUrl + `/inspections/${id}`, data);
   }
 
   deleteInspection(id: number | string) {
-    return this.http.delete(this.inspectionAPIUrl + '/inspections/${id}');
+    return this.http.delete(this.inspectionAPIUrl + `/inspections/${id}`);
   }
 
   //InspectionType
@@ -43,13 +43,13 @@ export class InspectionApiService {
 
   updateInspectionTypes(id: number | string, data: any) {
     return this.http.put(
-      this.inspectionAPIUrl + '/inspectionTypes/${id}',
+      this.inspectionAPIUrl + `/inspectionTypes/${id}`,
       data
     );
   }
 
   deleteInspectionTypes(id: number | string) {
-    return this.http.delete(this.inspectionAPIUrl + '/inspectionTypes/${id}');
+    return this.http.delete(this.inspectionAPIUrl + `/inspectionTypes/${id}`);
   }
 
   //Statuses
@@ -62,11 +62,11 @@ export class InspectionApiService {
   }
 
   updateStatus(id: number | string, data: any) {
-    return this.http.put(this.inspectionAPIUrl + '/status/${id}', data);
+    return this.http.put(this.inspectionAPIUrl + `/status/${id}`, data);
   }
 
   deleteStatus(id: number | string) {
-    return this.http.delete(this.inspectionAPIUrl + '/status/${id}');
+    return this.http.delete(this.inspectionAPIUrl + `/status/${id}`);
   }
 
   // Modification nataoko fin

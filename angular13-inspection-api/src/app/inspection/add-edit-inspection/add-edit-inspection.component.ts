@@ -33,7 +33,7 @@ export class AddEditInspectionComponent implements OnInit {
     this.id = this.inspection.id;
     this.status = this.inspection.status;
     this.comments = this.inspection.comments;
-    this.inspectionTypeId = this.inspectionTypeId;
+    this.inspectionTypeId = this.inspection.inspectionTypeId;
     this.statusList$ = this.service.getStatusList();
     this.inspectionList$ = this.service.getInspectionList();
     this.inspectionTypesList$ = this.service.getInspectionTypesList();
@@ -41,8 +41,59 @@ export class AddEditInspectionComponent implements OnInit {
   }
 
   // Modification nataoko début
-  addInspection() {}
+  addInspection() {
+    var inspection = {
+      status: this.status,
+      comments: this.comments,
+      inspectionTypeId: this.inspectionTypeId,
+    };
+    this.service.addInspection(inspection).subscribe((res) => {
+      var closeModalBtn = document.getElementById('add-edit-modal-close');
+      if (closeModalBtn) {
+        closeModalBtn.click();
+      }
 
-  updateInspection() {}
+      var showAddSuccess = document.getElementById('add-success-alert');
+      if (showAddSuccess) {
+        showAddSuccess.style.display = 'block';
+      }
+
+      setTimeout(function () {
+        if (showAddSuccess) {
+          showAddSuccess.style.display = 'none';
+        }
+      }, 4000);
+    });
+  }
+
+  updateInspection() {
+    var inspection = {
+      id: this.id,
+      status: this.status,
+      comments: this.comments,
+      inspectionTypeId: this.inspectionTypeId,
+    };
+
+    var idd: number = this.id;
+    // alert(inspection.status);
+    this.service.updateInspection(idd, inspection).subscribe((ress) => {
+      var closeModalBtn = document.getElementById('add-edit-modal-close');
+
+      if (closeModalBtn) {
+        closeModalBtn.click();
+      }
+
+      var showUpdateSuccess = document.getElementById('update-success-alert');
+      if (showUpdateSuccess) {
+        showUpdateSuccess.style.display = 'block';
+      }
+
+      setTimeout(function () {
+        if (showUpdateSuccess) {
+          showUpdateSuccess.style.display = 'none';
+        }
+      }, 4000);
+    });
+  }
   // Modification nataoko fin
 }

@@ -1,6 +1,14 @@
 <form>
   <div class="col-10 offset-1">
     <label for="inspectionTypeId" class="form-label">Inspection Type</label>
+    <input
+      type="text"
+      class="form-control"
+      name="inspectionTypeId"
+      [(ngModel)]="inspectionTypeId"
+      *ngIf="inspection.id != 0"
+      disabled
+    />
     <select
       name="inspectionTypeId"
       id="inspectionTypeId"
@@ -42,14 +50,14 @@
   <button
     (click)="addInspection()"
     *ngIf="inspection.id == 0"
-    class="btn-primary"
+    class="btn btn-primary"
   >
     Add
   </button>
   <button
     (click)="updateInspection()"
     *ngIf="inspection.id != 0"
-    class="btn-primary"
+    class="btn btn-primary"
   >
     Update
   </button>
